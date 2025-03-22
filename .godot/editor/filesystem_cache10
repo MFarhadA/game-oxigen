@@ -1,0 +1,8 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1742616232
+icon.svg::CompressedTexture2D/CompressedTexture2D::842544406583790701::1742614353::1742614359::1::::<><><>0<>0<>1aaa2fe0021be78c73d9617df1ad5528<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://level/::1742616229
+main.tscn::PackedScene/PackedScene::8424693990679761911::1742616229::0::1::::<><><>0<>0<><>::uid://bi6yi2qb35ryc::::res://level/tileset.png
+tileset.png::CompressedTexture2D/CompressedTexture2D::3013400080282224454::1742614992::1742616229::1::::<><><>0<>0<>aab1749c7fcc0ef34d67f7a9be227212<>res://.godot/imported/tileset.png-46b6dc2f8af8eca7a447cf1d0885ba1e.ctex::
+::res://player/::1742616232
+player.png::CompressedTexture2D::109006333491945551::1742616206::1742616232::1::::<><><>0<>0<>7b89f688c42495f64770343e8eb26074<>res://.godot/imported/player.png-1ad27fc2a62fa126eae918723933dd6f.ctex::
