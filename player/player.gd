@@ -1,13 +1,17 @@
 extends CharacterBody2D
 
 @export var anim : AnimatedSprite2D
+@export var angka : int
 const speed = 300
+var coin : int = 0
 
 func _ready() -> void:
 	return
 
 func _physics_process(delta: float) -> void:
+	
 	var velocity = Vector2.ZERO
+	
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -40,10 +44,16 @@ func _physics_process(delta: float) -> void:
 	if velocity == Vector2.ZERO:
 		anim.play("idle")
 	
-	print(position.x, position.y)
-	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
+		
 	position += velocity * delta
 	
 	move_and_slide()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("coin"):
+		area.queue_free()
+		coin += 1
+		

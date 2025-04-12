@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2u11jgn6eogr"]
+
+[ext_resource type="Texture2D" uid="uid://b74nof01sns1j" path="res://coin/coins-chests-etc-2-0-noborders.png" id="1_h8ymi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el688"]
+atlas = ExtResource("1_h8ymi")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksovn"]
+atlas = ExtResource("1_h8ymi")
+region = Rect2(192, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbvlv"]
+atlas = ExtResource("1_h8ymi")
+region = Rect2(208, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7rj8"]
+atlas = ExtResource("1_h8ymi")
+region = Rect2(224, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w86l"]
+atlas = ExtResource("1_h8ymi")
+region = Rect2(240, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh0lf"]
+atlas = ExtResource("1_h8ymi")
+region = Rect2(256, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c7c5"]
+atlas = ExtResource("1_h8ymi")
+region = Rect2(272, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2u70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el688")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksovn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbvlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7rj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w86l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh0lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5c7c5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h8ymi"]
+radius = 7.07107
+
+[node name="coin" type="Area2D" groups=["coin"]]
+scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_t2u70")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["coin"]]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_h8ymi")

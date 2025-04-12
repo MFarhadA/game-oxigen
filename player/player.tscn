@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://dxymorex4sjx5"]
 
 [ext_resource type="Texture2D" uid="uid://bs2k3b4puxhv" path="res://player/player.png" id="1_oul6g"]
-[ext_resource type="Script" uid="uid://1d0fxaje34ti" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://xm3kierupufm" path="res://player/player.gd" id="1_rkbax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
 atlas = ExtResource("1_oul6g")
@@ -175,8 +175,15 @@ texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
 animation = &"idle"
-frame_progress = 0.377526
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 4.5)
 shape = SubResource("RectangleShape2D_oul6g")
+
+[node name="coin_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="coin_area"]
+position = Vector2(-1.5, 4.5)
+shape = SubResource("RectangleShape2D_oul6g")
+
+[connection signal="area_entered" from="coin_area" to="." method="_on_area_2d_area_entered"]
