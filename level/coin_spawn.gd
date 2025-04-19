@@ -19,8 +19,8 @@ func _process(delta: float) -> void:
 
 func _on_coin_timer_timeout() -> void:
 	var coin_spawn = coin.instantiate() #instansiasi koin
-	var x = randi_range(50, 650) #pilih acak posisi x dari 50 sampai 650
-	var y = randi_range(50, 400) #pilih acak posisi x dari 40 sampai 400
+	var x = randi_range(50, 450) #pilih acak posisi x dari 50 sampai 650
+	var y = randi_range(50, 700) #pilih acak posisi x dari 40 sampai 400
 	coin_spawn.position = Vector2(x, y) #koin akan disimpan di posisi x dan y
 	add_child(coin_spawn) #tambahkan ke child coin_spawn
 	is_start = false #boolean timer spawn false

@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://dsa8qj6bfw4t4"]
+[gd_scene load_steps=15 format=4 uid="uid://dsa8qj6bfw4t4"]
 
 [ext_resource type="Texture2D" uid="uid://bi6yi2qb35ryc" path="res://level/tileset.png" id="1_414cb"]
 [ext_resource type="PackedScene" uid="uid://dxymorex4sjx5" path="res://player/player.tscn" id="2_0ukcc"]
 [ext_resource type="Script" uid="uid://c6aq06xxkfrju" path="res://level/coin_spawn.gd" id="3_nt2wp"]
 [ext_resource type="PackedScene" uid="uid://c2u11jgn6eogr" path="res://coin/coin.tscn" id="4_qh04p"]
+[ext_resource type="PackedScene" uid="uid://t8yd3iwhdem2" path="res://enemy/enemy.tscn" id="5_k8f8b"]
+[ext_resource type="Script" uid="uid://c3lh3q5tbyibn" path="res://level/enemy_spawn.gd" id="6_7vc00"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ukcc"]
 texture = ExtResource("1_414cb")
@@ -212,6 +214,12 @@ texture = ExtResource("1_414cb")
 [sub_resource type="TileSet" id="TileSet_k8f8b"]
 sources/0 = SubResource("TileSetAtlasSource_qh04p")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vc00"]
+size = Vector2(100.75, 789.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klgnm"]
+size = Vector2(675.5, 129.75)
+
 [node name="main" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -227,7 +235,7 @@ tile_set = SubResource("TileSet_0ukcc")
 
 [node name="player" parent="." instance=ExtResource("2_0ukcc")]
 z_index = 2
-position = Vector2(239, 304)
+position = Vector2(240, 353)
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_k8f8b")
@@ -240,4 +248,33 @@ spawn_timer = NodePath("coin_timer")
 [node name="coin_timer" type="Timer" parent="coin_spawn"]
 one_shot = true
 
+[node name="enemy_spawn" type="Node2D" parent="." node_paths=PackedStringArray("spawn_timer")]
+z_index = 2
+script = ExtResource("6_7vc00")
+enemy = ExtResource("5_k8f8b")
+spawn_timer = NodePath("enemy_timer")
+
+[node name="enemy_timer" type="Timer" parent="enemy_spawn"]
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-49, 357)
+shape = SubResource("RectangleShape2D_7vc00")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(240.75, -68)
+shape = SubResource("RectangleShape2D_klgnm")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(236, 796)
+shape = SubResource("RectangleShape2D_klgnm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(527.625, 371.25)
+shape = SubResource("RectangleShape2D_7vc00")
+
 [connection signal="timeout" from="coin_spawn/coin_timer" to="coin_spawn" method="_on_coin_timer_timeout"]
+[connection signal="timeout" from="enemy_spawn/enemy_timer" to="enemy_spawn" method="_on_enemy_timer_timeout"]
