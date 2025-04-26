@@ -110,6 +110,7 @@ radius = 5.0
 height = 16.0
 
 [node name="enemy" type="Area2D" node_paths=PackedStringArray("anim") groups=["enemy"]]
+position = Vector2(0, 4)
 scale = Vector2(3, 3)
 script = ExtResource("1_ofsxj")
 anim = NodePath("anim")

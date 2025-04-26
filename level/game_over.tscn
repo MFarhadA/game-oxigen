@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddkhgccwxsayi"]
+
+[ext_resource type="Script" uid="uid://b8ktq2vtitcef" path="res://level/game_over.gd" id="1_p3wm4"]
+[ext_resource type="Theme" uid="uid://8tukbh5mt47l" path="res://menu/game.tres" id="2_e2qq2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n7bhs"]
+font_size = 54
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p3wm4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 50.0
+offset_right = 392.0
+offset_bottom = 124.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_n7bhs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 40.0
+offset_top = 493.0
+offset_right = 446.0
+offset_bottom = 693.0
+
+[node name="ulangi" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e2qq2")
+text = "ULANGI"
+
+[node name="keluar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_e2qq2")
+text = "KELUAR"
+
+[connection signal="pressed" from="VBoxContainer/ulangi" to="." method="_on_button_retry_pressed"]
+[connection signal="pressed" from="VBoxContainer/keluar" to="." method="_on_keluar_pressed"]

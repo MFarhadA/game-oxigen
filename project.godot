@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Game Oxigen"
-run/main_scene="uid://dsa8qj6bfw4t4"
+run/main_scene="uid://xmyrthqvys1x"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=480
 window/size/viewport_height=720
+window/size/resizable=false
+window/stretch/mode="viewport"
 
 [input]
 

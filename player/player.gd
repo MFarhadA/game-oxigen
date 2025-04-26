@@ -4,7 +4,7 @@ extends CharacterBody2D
 const speed = 300 #kecepatan berjalan
 var coin : int = 0 #koin
 var health : int = 0
-@export var initial_health : int = 3
+@export var initial_health : int = 1
 @export var invisible_timer : Timer
 @export var hit_area : Area2D
 
@@ -12,7 +12,6 @@ func _ready() -> void:
 	health = initial_health
 
 func _physics_process(delta: float) -> void:
-	print(health, " ", invisible_timer.time_left)
 	
 	var velocity = Vector2.ZERO #velocity berawal dari posisi nol
 	
@@ -57,6 +56,7 @@ func _physics_process(delta: float) -> void:
 	
 	if health == 0:
 		queue_free()
+		get_tree().change_scene_to_file("res://level/game_over.tscn")
 	
 	#untuk collission player
 	move_and_slide()
